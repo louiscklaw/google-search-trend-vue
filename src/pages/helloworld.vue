@@ -1,7 +1,6 @@
 <template>
   <div>
-    <h1>about 123</h1>
-    <router-link to="/">helloworld</router-link>
+    <h1>helloworld page</h1>
   </div>
 </template>
 
@@ -14,11 +13,11 @@
     },
     metaInfo: {
       // if no subcomponents specify a metaInfo.title, this title will be used
-      title: 'About',
+      title: 'Helloworld',
       meta: [{
         vmid: 'description',
         name: 'description',
-        content: 'about'
+        content: 'helloworld'
       }]
     }
 

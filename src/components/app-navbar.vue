@@ -35,8 +35,8 @@
     data() {
       return {
         menuitems: {
-          'Helloworld': 'Helloworld',
-          'Programming language': 'Programming language',
+          'Helloworld': '/',
+          'Programming language': '/programming_language',
           'main page': '/mainPage',
           'test page': {
             'test chartjs': '/test_chartjs',
