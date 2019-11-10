@@ -1,13 +1,8 @@
 <template>
   <div>
     <app-navbar></app-navbar>
-
-    <component :is="layout">
-      <router-view :layout.sync="layout" />
-    </component>
-
+    <slot />
     <app-footer></app-footer>
-
   </div>
 </template>
 
