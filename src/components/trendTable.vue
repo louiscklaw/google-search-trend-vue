@@ -13,15 +13,15 @@
         </tr>
       </thead>
       <tbody class="is-small">
-        <tr v-for="idx in trendingSearches.length" v-bind:key="idx">
+        <tr v-for="idx in trendingSearches.length" :key="idx">
           <td>{{ idx }}</td>
           <td>
-            <a v-bind:href="trendingSearches[idx-1].image.newsUrl"
+            <a :href="trendingSearches[idx-1].image.newsUrl"
               target="_blank">{{ trendingSearches[idx-1].title.query }}</a>
           </td>
           <td>
             {{ trendingSearches[idx-1].formattedTraffic }}
-            <a v-bind:href="trendingSearches[idx-1].shareUrl">
+            <a :href="trendingSearches[idx-1].shareUrl" target="_blank">
               <font-awesome-icon class="fa_icon_style" :icon="['fas', 'search']" />
               <font-awesome-icon class="fa_icon_style" :icon="['fas', 'external-link-alt']" />
             </a>

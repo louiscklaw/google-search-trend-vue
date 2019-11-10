@@ -1,8 +1,9 @@
 <template lang="pug">
   section.section
-    .columns.is-multiline
-      .column.is-one-quarter(v-for="location in locations" v-bind:key="location")
-        trend_card(v-bind:location="location")
+    .container
+      .columns.is-multiline
+        .column.is-one-quarter(v-for="location in locations" v-bind:key="location")
+          trend_card(v-bind:location="location")
 
 </template>
 

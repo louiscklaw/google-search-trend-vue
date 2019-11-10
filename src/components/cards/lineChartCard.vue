@@ -98,7 +98,7 @@
           bus.$emit( this.listen_to, [
             getChartLabels( chart_data.default.timelineData ),
             parseDataSets(
-              chart_data.default.timelineData, [ 'CALL4VAN', 'lalamove', 'GoGoVan' ]
+              chart_data.default.timelineData, this.keywords
             )
           ] )
           this.isLoading = false
