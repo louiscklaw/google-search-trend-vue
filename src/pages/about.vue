@@ -1,16 +1,19 @@
-<template>
-  <div>
-    <h1>about 123</h1>
-    <router-link to="/">helloworld</router-link>
-  </div>
+<template lang="pug">
+  section.section
+    .columns
+      .column
+        font-awesome-icon(:icon="['fas', 'camera']")
+        font-awesome-icon(:icon="['fas', 'external-link-alt']")
+
+
 </template>
 
 <script>
-  import layoutsHelloworld from '../layouts/helloworld.vue'
+  import layoutDefault from '../layouts/default.vue'
 
   export default {
     created() {
-      this.$emit( 'update:layout', layoutsHelloworld )
+      this.$emit( 'update:layout', layoutDefault )
     },
     metaInfo: {
       // if no subcomponents specify a metaInfo.title, this title will be used

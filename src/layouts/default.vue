@@ -1,7 +1,9 @@
 <template>
   <div>
     <app-navbar></app-navbar>
-    <slot />
+    <div class="content">
+      <slot />
+    </div>
     <app-footer></app-footer>
   </div>
 </template>
@@ -10,6 +12,10 @@
   import appNavbar from '../components/app-navbar.vue'
   import appFooter from '../components/app-footer.vue'
 
+  import {
+    FB_DEFAULT_META,
+    TWITTER_DEFAULT_META
+  } from '../const'
   import common from '../common'
 
   export default {
@@ -21,13 +27,15 @@
       titleTemplate: '%s | my google trends',
       description: 'meta description',
       meta: [
-        ...common.getFacebookOgMeta('desc','title','site','local','type','url','img'),
-        ...common.getTwitterOgMeta('site', 'creator', 'title', 'description', 'image')
-        ]
+        common.getOgMeta( FB_DEFAULT_META.fb_site_name, 'site-name' ),
+        common.getTwitterMeta( TWITTER_DEFAULT_META.twitter_site, 'site-name' )
+      ]
     }
   }
 </script>
 
-<style>
-
+<style scoped>
+  .content{
+    min-height: calc( 100vh - 52px)
+  }
 </style>

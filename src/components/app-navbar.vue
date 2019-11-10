@@ -36,8 +36,17 @@
       return {
         menuitems: {
           'Helloworld': '/',
-          'Programming language': '/programming_language',
-          'main page': '/mainPage',
+          'google trends': {
+            'programming_language': '/programming_language',
+            'lihkg_vs_hkgolden': '/lihkg_vs_hkgolden',
+            'hktvmall_vs_bigbigchannel': '/hktvmall_vs_bigbigchannel',
+            'jobs_ads': '/jobs_ads',
+            'IOT': '/IOT',
+            'tech_terms': '/tech_terms',
+            'test_farms': '/test_farms',
+            'belt_and_road': '/belt_and_road',
+            'moving_service': '/moving_service'
+          },
           'test page': {
             'test chartjs': '/test_chartjs',
             'test hot topics': '/test_hot_topics',

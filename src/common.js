@@ -8,6 +8,10 @@
 // <meta property="og:url" content="http://www.sfidastudios.com">
 // <meta property="og:image" content="http://www.sfidastudios.com/logo.png"> <!-- 200x200px - 1200x1200px --></meta>
 
+function getOgMeta(meta_name, meta_content){
+  return {vmid: `og:${meta_name}`, property: `og:${meta_name}`, content: meta_content}
+}
+
 
 /*eslint no-unused-vars:"off" */
 function getFacebookOgMeta(
@@ -34,6 +38,10 @@ function getFacebookOgMeta(
 //twitter:description 	Description of content (maximum 200 characters) 	The page's meta description content, found by the XPath expression: ouc:properties/meta[@name='description']/@content.
 //twitter:image 	URL of image to use in the card. Images must be less than 5MB in size. 	Directory Variable: twitter-image. Defaults to og-image directory variable if left blank.
 
+function getTwitterMeta(meta_name, meta_content){
+  return {vmid: `twitter:${meta_name}`, property: `twitter:${meta_name}`, content: meta_content}
+}
+
 /*eslint no-unused-vars:"off" */
 function getTwitterOgMeta( site, creator, title, description, image){
   return [
@@ -56,5 +64,7 @@ function  helloworld(){
 export default {
   getFacebookOgMeta,
   getTwitterOgMeta,
-  helloworld
+  helloworld,
+  getOgMeta,
+  getTwitterMeta
 }
