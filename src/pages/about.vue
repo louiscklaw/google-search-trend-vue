@@ -1,10 +1,16 @@
 <template lang="pug">
   section.section
-    .columns
-      .column
-        font-awesome-icon(:icon="['fas', 'camera']")
-        font-awesome-icon(:icon="['fas', 'external-link-alt']")
-
+    .container
+      .columns
+        .column.is-half
+          h1.subtitle.is-3 about page
+          ul
+            li this is a page re-organize the data scraped from google trends/wikipedia
+      .columns
+        .column.is-half
+          h1.subtitle.is-3 todo list:
+          ul
+            li integrate with the data found from wikipedia about world population
 
 </template>
 
@@ -24,6 +30,5 @@
         content: 'about'
       }]
     }
-
   }
 </script>
