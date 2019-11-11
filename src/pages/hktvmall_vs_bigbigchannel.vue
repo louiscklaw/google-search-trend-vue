@@ -18,8 +18,12 @@
 <script>
   // import barChart from '../components/bar_chart.vue'
   import lineChartCard from '../components/cards/lineChartCard.vue'
+  import layoutDefault from '../layouts/default.vue'
 
   export default {
+    created() {
+      this.$emit( 'update:layout', layoutDefault )
+    },
     data() {
       return {
         chart_title: 'programming language search popularity in last'

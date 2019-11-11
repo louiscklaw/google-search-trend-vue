@@ -1,3 +1,5 @@
+/*eslint no-console:"off"*/
+
 import fetcher from './fetcher'
 import _const from './_const'
 

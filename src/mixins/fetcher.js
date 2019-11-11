@@ -1,5 +1,7 @@
 // fetcher.js
 
+/*eslint no-console:"off"*/
+
 import _const from "./_const";
 
 function extract_trending_search ( json_in ) {

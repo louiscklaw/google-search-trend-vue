@@ -20,13 +20,17 @@
             pre(:keyword=keyword :day_back=day_back*365 :resolution="'COUNTRY'")
 
 </template>
-
 <script>
   // import barChart from '../components/bar_chart.vue'
+  import layoutDefault from '../layouts/default.vue'
+
   import lineChartCard from '../components/cards/lineChartCard.vue'
   import MapChoropleth from '../components/mapChoropleth.vue'
 
   export default {
+    created() {
+      this.$emit( 'update:layout', layoutDefault )
+    },
     data() {
       return {
         chart_title: 'programming language search popularity in last',

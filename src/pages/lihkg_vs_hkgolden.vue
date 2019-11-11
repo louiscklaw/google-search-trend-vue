@@ -17,9 +17,14 @@
 
 <script>
   // import barChart from '../components/bar_chart.vue'
+  import layoutDefault from '../layouts/default.vue'
+
   import lineChartCard from '../components/cards/lineChartCard.vue'
 
   export default {
+    created() {
+      this.$emit( 'update:layout', layoutDefault )
+    },
     data() {
       return {
         chart_title: 'chart title'
