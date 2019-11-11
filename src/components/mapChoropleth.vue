@@ -6,7 +6,7 @@
         :is-full-page="fullPage" />
       <div :id="map_id">
         <!-- :center="[-23.752961, -57.854357]" -->
-        <l-map :zoom="0" style="height: 300px;" :options="mapOptions">
+        <l-map :zoom="0" style="height: 250px;" :options="mapOptions">
           <l-choropleth-layer
             :data="myData"
             titleKey="geoName" idKey="geoCode"
@@ -116,7 +116,7 @@
         .then( json => {
           this.myData = json.default.geoMapData
           /*eslint no-console:"off"*/
-          console.log(this.keyword)
+          // console.log(this.keyword)
           console.log(JSON.stringify(json.default.geoMapData))
           this.isLoading = false
           // document.querySelector( '#'+this.map_id ).style.visibility = 'visible'

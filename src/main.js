@@ -23,6 +23,9 @@ Vue.config.productionTip = false
 
 export const bus = new Vue();
 
+import Sentry from './mixins/sentry'
+Sentry.init()
+
 new Vue( {
   render: h => h( App ),
   router: router,

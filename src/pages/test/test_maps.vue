@@ -10,7 +10,10 @@
         <div class="columns">
           <div class="column is-one-quarter">
             <map-choropleth
-              :search_params="{keyword: 'apple', dayBack: 365*1, resolution: 'COUNTRY'}" :graph_title="'test title'"
+              :keyword="'apple'"
+              :dayBack="365"
+              :resolution="'COUNTRY'"
+              :graph_title="'test graph title'"
               />
           </div>
         </div>
@@ -21,7 +24,6 @@
 
 <script>
   import layoutDefault from '../../layouts/default.vue'
-
   import MapChoropleth from '../../components/mapChoropleth.vue'
 
   export default {

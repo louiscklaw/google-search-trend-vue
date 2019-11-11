@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "vue-helloworld-a4047"
+    "default": "search-trend-vue-staging",
+    "production": "search-trend-vue",
+    "staging": "search-trend-vue-staging"
   }
 }

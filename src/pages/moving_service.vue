@@ -2,6 +2,7 @@
   section.section
     - var keywords = [ 'CALL4VAN', 'lalamove', 'GoGoVan' ]
     - var geo = "HK"
+    - var graph_title = 'search popupation'
     .container
       .columns
         each day_back in [1,5]
@@ -17,13 +18,15 @@
 <script>
   import layoutDefault from '../layouts/default.vue'
   import lineChartCard from '../components/cards/lineChartCard.vue'
+  import MapChoropleth from '../components/mapChoropleth.vue'
 
   export default {
     created() {
       this.$emit( 'update:layout', layoutDefault )
     },
     components:{
-      lineChartCard
+      lineChartCard,
+      MapChoropleth
     },
     metaInfo: {
       // if no subcomponents specify a metaInfo.title, this title will be used
