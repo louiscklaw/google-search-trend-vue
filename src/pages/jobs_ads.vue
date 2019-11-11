@@ -2,6 +2,7 @@
   section.section
     - var keywords = [ 'jobsdb', 'linkedin','recruit','career times','indeed']
     - var geo = "HK"
+    - var graph_title = "job ads page compare"
 
     .container
       .columns
@@ -13,12 +14,19 @@
           .column.is-half
             line-chart-card(v-bind:keywords=keywords v-bind:geo=[geo] v-bind:day_back=day_back*365 v-bind:chart_title="chart_title")
 
+      each test in [1,3,5]
+        .columns
+          each test_value in keywords
+            .column.is-one-fifth
+              h6(v-if="test==1").map-subtitle.subtitle.is-6 #{test_value}
+              map-choropleth(keyword=test_value dayBack=365*test resolution="'COUNTRY'" graph_title=graph_title+' ('+ test_value +','+ test +' years )')
 </template>
 
 <script>
   // import barChart from '../components/bar_chart.vue'
   import lineChartCard from '../components/cards/lineChartCard.vue'
   import layoutDefault from '../layouts/default.vue'
+  import MapChoropleth from '../components/mapChoropleth.vue'
 
   export default {
     created() {
@@ -30,7 +38,15 @@
       }
     },
     components: {
-      'line-chart-card': lineChartCard
+      'line-chart-card': lineChartCard,
+      MapChoropleth
     }
   }
 </script>
+
+
+<style scoped>
+  .map-subtitle {
+    font-size: 0.8rem;
+  }
+</style>

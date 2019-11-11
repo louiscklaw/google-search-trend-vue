@@ -22,7 +22,7 @@
         .columns
           each test_value in keywords
             .column.is-one-fifth
-              h3.subtitle.is-6 #{test_value}
+              h6(v-if="test==1").map-subtitle.subtitle.is-6 #{test_value}
               map-choropleth(keyword=test_value dayBack=365*test resolution="'COUNTRY'" graph_title=graph_title+' ('+ test +' years )')
 
 </template>
@@ -51,3 +51,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .map-subtitle {
+    font-size: 0.8rem;
+  }
+</style>

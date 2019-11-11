@@ -2,6 +2,7 @@
   section.section
     - var keywords = [ 'javascript', 'php', 'python' ]
     - var geo = ""
+    - var graph_title = "programming lang compare"
 
     .container
       .columns
@@ -13,11 +14,12 @@
           .column.is-half
             line-chart-card(:keywords=keywords :geo=[geo] :day_back=day_back*365 :chart_title="chart_title")
 
-      .columns
-        each keyword in ['a','b','c']
-          .column.is-one-fifth
-            //- map-choropleth(:keyword="keyword" :day_back="day_back" :resolution="COUNTRY")
-            pre(:keyword=keyword :day_back=day_back*365 :resolution="'COUNTRY'")
+      each test in [1,3,5]
+        .columns
+          each test_value in keywords
+            .column.is-one-third
+              h6(v-if="test==1").map-subtitle.subtitle.is-6 #{test_value}
+              map-choropleth(keyword=test_value dayBack=365*test resolution="'COUNTRY'" graph_title=graph_title+' ('+ test +' years )')
 
 </template>
 <script>
@@ -42,3 +44,9 @@
     }
   }
 </script>
+
+<style scoped>
+  .map-subtitle {
+    font-size: 0.8rem;
+  }
+</style>
