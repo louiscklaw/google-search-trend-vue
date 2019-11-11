@@ -1,31 +1,23 @@
 <template>
-  <div class="vld-parent">
-    <loading :loader="'dots'" :height="35" :width="35" :active.sync="isLoading" :can-cancel="true"
-      :is-full-page="fullPage" />
-
-      <div id="mapbody" style="visibility: hidden">
+  <div>
+    <h3 class="subtitle is-5">{{ graph_title }}</h3>
+    <div class="vld-parent">
+      <loading :loader="'dots'" :height="35" :width="35" :active.sync="isLoading" :can-cancel="true"
+        :is-full-page="fullPage" />
+      <div :id="map_id">
         <!-- :center="[-23.752961, -57.854357]" -->
-        <l-map
-        :zoom="0" style="height: 400px;"
-        :options="mapOptions">
+        <l-map :zoom="0" style="height: 300px;" :options="mapOptions">
           <l-choropleth-layer
-            :data="myData" titleKey="geoName" idKey="geoCode"
+            :data="myData"
+            titleKey="geoName" idKey="geoCode"
             :value="value"
-            :extraValues="extraValues" geojsonIdKey="iso_a2"
+            geojsonIdKey="iso_a2"
             :geojson="worldGeojson"
             :colorScale="colorScale">
 
             <template slot-scope="props">
-              <l-info-control
-                :item="props.currentItem"
-                :unit="props.unit"
-                title="test region"
-                placeholder="" />
-              <l-reference-chart
-                title="chart title"
-                :colorScale="colorScale"
-                :min="props.min"
-                :max="props.max"
+              <l-info-control :item="props.currentItem" :unit="props.unit" title="" placeholder="" />
+              <l-reference-chart title="chart title" :colorScale="colorScale" :min="props.min" :max="props.max"
                 position="topright" />
             </template>
 
@@ -34,6 +26,7 @@
 
       </div>
 
+    </div>
   </div>
 
 </template>
@@ -42,8 +35,6 @@
   /*eslint no-unused-vars:"off" */
   /*eslint vue/no-unused-vars:"off" */
   /*eslint vue/no-unused-components:"off" */
-
-
   import Loading from 'vue-loading-overlay';
   import 'vue-loading-overlay/dist/vue-loading.css';
 
@@ -77,7 +68,7 @@
 
   export default {
     name: "app",
-    props: [ 'search_params' ],
+    props: [ 'keyword', 'dayBack', 'resolution', 'graph_title' ],
     components: {
       LMap,
       'l-info-control': InfoControl,
@@ -87,6 +78,7 @@
     },
     data() {
       return {
+        map_id: 'mapid_'+Math.random().toString().slice(2,10),
         pyDepartmentsData,
         myData,
         paraguayGeojson,
@@ -114,13 +106,20 @@
     created() {
       fm.fetch_post_request( {
           q: Q_INTEREST_BY_REGION,
-          param: this.search_params
+          param: {
+            keyword: this.keyword,
+            dayBack: this.dayBack,
+            resolution: this.resolution
+          }
         } )
         .then( res => res.json() )
         .then( json => {
           this.myData = json.default.geoMapData
+          /*eslint no-console:"off"*/
+          console.log(this.keyword)
+          console.log(JSON.stringify(json.default.geoMapData))
           this.isLoading = false
-          document.querySelector('#mapbody').style.visibility='visible'
+          // document.querySelector( '#'+this.map_id ).style.visibility = 'visible'
         } )
     }
   }
@@ -128,11 +127,4 @@
 <style scoped>
   @import "../../node_modules/leaflet/dist/leaflet.css";
 
-  #mapbody {
-    visibility: hidden;
-  }
-
-  #map {
-    background-color: #000;
-  }
 </style>

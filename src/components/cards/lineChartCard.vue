@@ -2,21 +2,9 @@
   <div class="card">
     <div class="vld-parent">
       <loading :loader="'dots'" :height="35" :width="35" :active.sync="isLoading" :can-cancel="true" :is-full-page="fullPage" />
-
-      <div class="card-image">
-        <line-chart v-bind:labels="labels" v-bind:datasets="datasets" v-bind:listen_to="listen_to"></line-chart>
-      </div>
       <div class="card-content">
-        <div class="media">
-          <div class="media-left reserved">
-            <figure class="image is-48x48">
-              <img src="https://bulma.io/images/placeholders/96x96.png" alt="Placeholder image">
-            </figure>
-          </div>
-          <div class="media-content">
-            <p class="title is-6">search compare {{ this.day_back / 365 }} year</p>
-            <p class="subtitle is-6">@johnsmith</p>
-          </div>
+        <div class="card-image" >
+          <line-chart class="line-chart" v-bind:labels="labels" v-bind:datasets="datasets" v-bind:listen_to="listen_to" ></line-chart>
         </div>
 
         <div class="content reserved">
@@ -66,12 +54,19 @@
   }
 
   export default {
-    props: [
+    props_old: [
       'keywords',
       'day_back',
       'geo',
       'chart_title'
     ],
+    props:{
+      keywords: [String],
+      day_back: Number,
+      chart_title: String,
+      geo: {default: ''},
+      legend_display: Boolean
+    },
     data() {
       return {
         labels: [],
@@ -89,6 +84,9 @@
       // TODO: necessary to use array ?
       let incoming_geo = this.geo[ 0 ]
 
+      /*eslint no-console:"off"*/
+      console.log(`lineChartCard.vue ${this.legend_display}`)
+
       cm.chart_interest_over_time( {
           geo: incoming_geo,
           keyword: this.keywords,
@@ -99,7 +97,8 @@
             getChartLabels( chart_data.default.timelineData ),
             parseDataSets(
               chart_data.default.timelineData, this.keywords
-            )
+            ),
+            {legend_display: this.legend_display}
           ] )
           this.isLoading = false
         } )
@@ -111,5 +110,9 @@
 <style lang="scss" scoped>
   .reserved {
     display: none;
+  }
+
+  .line-chart{
+    height: 200px;
   }
 </style>

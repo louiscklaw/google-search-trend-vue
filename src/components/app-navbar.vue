@@ -52,7 +52,8 @@
             'test hot topics': '/test_hot_topics',
             'test maps': '/test_maps',
             'test loader': '/test_loader',
-            'test choropleth': '/test_choropleth'
+            'test choropleth': '/test_choropleth',
+            'test pug': '/test_pug'
           },
           'About': '/about'
         }
@@ -64,7 +65,3 @@
     }
   }
 </script>
-
-<style>
-
-</style>

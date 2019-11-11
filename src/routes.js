@@ -1,4 +1,3 @@
-// routes.js
 import about from './pages/about.vue'
 
 import helloworld from './pages/helloworld.vue'
@@ -12,6 +11,15 @@ import test_farms from './pages/test_farms.vue'
 import belt_and_road from './pages/belt_and_road.vue'
 import moving_service from './pages/moving_service.vue'
 
+import test_maps from './pages/test/test_maps.vue'
+import test_chartjs from './pages/test/test_chartjs.vue'
+import test_hot_topics from './pages/test/test_hot_topics.vue'
+import test_loader from './pages/test/test_loader.vue'
+import test_choropleth from './pages/test/test_choropleth.vue'
+import test_pug from './pages/test/test_pug.vue'
+
+
+
 let route_component_pair = [
   [ '/', helloworld ],
   [ '/about', about ],
@@ -24,6 +32,13 @@ let route_component_pair = [
   [ '/test_farms', test_farms ],
   [ '/belt_and_road', belt_and_road ],
   [ '/moving_service', moving_service ],
+
+  [ '/test_maps', test_maps ],
+  [ '/test_chartjs', test_chartjs ],
+  [ '/test_hot_topics', test_hot_topics ],
+  [ '/test_loader', test_loader ],
+  [ '/test_choropleth', test_choropleth ],
+  [ '/test_pug', test_pug ],
 ]
 
 export default route_component_pair.map( a => {
