@@ -1,19 +1,22 @@
 <template lang="pug">
   section.section
-    .columns
-      .column
-        font-awesome-icon(:icon="['fas', 'camera']")
-        font-awesome-icon(:icon="['fas', 'external-link-alt']")
-
-
+    .columns.is-multiline
+      each val in ['1','2','3','4']
+        .column.is-one-quarter
+          test-component(test_value=val)
 </template>
 
 <script>
-  import layoutDefault from '../layouts/default.vue'
+  // pre(test_param="{test: test_value}") #{test_value}
+  import layoutDefault from '../../layouts/default.vue'
+  import testComponent from '../../components/test_component.vue'
 
   export default {
     created() {
       this.$emit( 'update:layout', layoutDefault )
+    },
+    components:{
+      testComponent
     },
     metaInfo: {
       // if no subcomponents specify a metaInfo.title, this title will be used
@@ -27,7 +30,3 @@
 
   }
 </script>
-
-<style>
-
-</style>
