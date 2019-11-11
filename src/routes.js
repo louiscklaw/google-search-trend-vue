@@ -10,6 +10,8 @@ import tech_terms from './pages/tech_terms.vue'
 import test_farms from './pages/test_farms.vue'
 import belt_and_road from './pages/belt_and_road.vue'
 import moving_service from './pages/moving_service.vue'
+import react_vue_angular from './pages/react_vue_angular.vue'
+
 
 import test_maps from './pages/test/test_maps.vue'
 import test_chartjs from './pages/test/test_chartjs.vue'
@@ -32,6 +34,8 @@ let route_component_pair = [
   [ '/test_farms', test_farms ],
   [ '/belt_and_road', belt_and_road ],
   [ '/moving_service', moving_service ],
+  [ '/react_vue_angular', react_vue_angular],
+
 
   [ '/test_maps', test_maps ],
   [ '/test_chartjs', test_chartjs ],
@@ -39,6 +43,7 @@ let route_component_pair = [
   [ '/test_loader', test_loader ],
   [ '/test_choropleth', test_choropleth ],
   [ '/test_pug', test_pug ],
+
 ]
 
 export default route_component_pair.map( a => {

@@ -16,3 +16,9 @@
     }
   }
 </script>
+
+<style>
+  .map-subtitle {
+    font-size: 0.8rem;
+  }
+</style>

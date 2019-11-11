@@ -42,10 +42,11 @@
             'hktvmall_vs_bigbigchannel': '/hktvmall_vs_bigbigchannel',
             'jobs_ads': '/jobs_ads',
             'IOT': '/IOT',
-            'tech_terms': '/tech_terms',
-            'test_farms': '/test_farms',
-            'belt_and_road': '/belt_and_road',
-            'moving_service': '/moving_service'
+            'technical terms': '/tech_terms',
+            'mobile test farms': '/test_farms',
+            'belt and road': '/belt_and_road',
+            'moving service': '/moving_service',
+            'webapp framework': '/react_vue_angular'
           },
           'test page': {
             'test chartjs': '/test_chartjs',

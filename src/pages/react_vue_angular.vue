@@ -1,0 +1,56 @@
+<template lang="pug">
+  section.section
+    - var keywords = [ 'react', 'Vue.js', 'angular' ]
+    - var geo = ""
+    - var graph_title = "webapp framework"
+
+    .container
+      .columns
+        .column.is-full
+          h3.subtitle.is-6 google trend of react, vue and angular webapp framework
+      .columns
+        each day_back in [1,5]
+          .column.is-one-quarter
+            line-chart-card(:keywords=keywords :geo=[geo] :day_back=day_back*365 :chart_title="chart_title")
+
+        each day_back in [10]
+          .column.is-half
+            line-chart-card(:keywords=keywords :geo=[geo] :day_back=day_back*365 :chart_title="chart_title")
+
+      each test in [1,3,5]
+        .columns
+          each test_value in keywords
+            .column.is-one-third
+              h6(v-if="test==1").map-subtitle #{test_value}
+              map-choropleth(keyword=test_value dayBack=365*test resolution="'COUNTRY'" graph_title=graph_title+' ('+ test_value +','  + test +' years )')
+
+</template>
+<script>
+  // import barChart from '../components/bar_chart.vue'
+  import layoutDefault from '../layouts/default.vue'
+
+  import lineChartCard from '../components/cards/lineChartCard.vue'
+  import MapChoropleth from '../components/mapChoropleth.vue'
+
+  export default {
+    created() {
+      this.$emit( 'update:layout', layoutDefault )
+    },
+    data() {
+      return {
+        chart_title: 'programming language search popularity in last',
+      }
+    },
+    components: {
+      'line-chart-card': lineChartCard,
+      MapChoropleth
+    }
+  }
+</script>
+
+<style scoped>
+  .map-subtitle {
+    font-size: 0.8rem;
+  }
+
+</style>

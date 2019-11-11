@@ -1,6 +1,6 @@
 <template>
   <div>
-    <h3 class="subtitle is-5">{{ graph_title }}</h3>
+    <h3 class="map-subtitle subtitle is-6">{{ graph_title }}</h3>
     <div class="vld-parent">
       <loading :loader="'dots'" :height="35" :width="35" :active.sync="isLoading" :can-cancel="true"
         :is-full-page="fullPage" />
