@@ -47,6 +47,7 @@
             'belt and road': '/belt_and_road',
             'moving service': '/moving_service',
             'webapp framework': '/react_vue_angular'
+            'cryptocurrency': '/cryptocurrency'
           },
           'test page': {
             'test chartjs': '/test_chartjs',
