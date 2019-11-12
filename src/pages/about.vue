@@ -10,6 +10,7 @@
         .column.is-half
           h1.subtitle.is-3 todo list:
           ul
+            li update styling
             li integrate with the data found from wikipedia about world population
 
 </template>

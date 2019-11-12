@@ -2,7 +2,7 @@
   section.section
     - var keywords = [ 'bitcoin', 'libra', 'ethercoin' ]
     - var geo = ""
-    - var graph_title = "programming lang compare"
+    - var graph_title = "cryptocurrency compare"
 
     .container
       .columns
@@ -19,7 +19,7 @@
           each test_value in keywords
             .column.is-one-third
               h6(v-if="test==1").map-subtitle.subtitle.is-6 #{test_value}
-              map-choropleth(keyword=test_value dayBack=365*test resolution="'COUNTRY'" graph_title=graph_title+' ('+ test +' years )')
+              map-choropleth(keyword=test_value dayBack=365*test resolution="'COUNTRY'" graph_title=graph_title+' ('+ test_value + ', ' + test +' years )')
 
 </template>
 <script>
