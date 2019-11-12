@@ -46,7 +46,7 @@
             'mobile test farms': '/test_farms',
             'belt and road': '/belt_and_road',
             'moving service': '/moving_service',
-            'webapp framework': '/react_vue_angular'
+            'webapp framework': '/react_vue_angular',
             'cryptocurrency': '/cryptocurrency'
           },
           'test page': {
