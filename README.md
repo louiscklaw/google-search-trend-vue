@@ -24,5 +24,9 @@ npm run lint
 See [Configuration Reference](https://cli.vuejs.org/config/).
 
 
+
+公衆活動統計數字
+https://www.police.gov.hk/ppp_tc/09_statistics/poes.html
+
 ### to deploy
 sh ./deploy.sh
